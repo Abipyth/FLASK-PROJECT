@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Codes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .footer {
+            background-color: #5e5e06;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+       
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg " style="padding: 20px; background-color: #5e5e06">
+        <a class="navbar-brand" href="#" style="font-family: Arial Black; color: white;">QR Based City Bus Route Recommendation System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Arial Black;">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a style="color: white;" class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <ul>
+        <div class="container mt-4">
+            <h1 class="mb-4" style="font-family: Courier, monospace;">View QR Codes</h1>
+            <div class="row">
+        {% for bus_number in bus_numbers %}
+        <div class="col-md-4 mb-4">
+            <div class="card" style="border-radius: 20px;">
+                <div class="card-header" style="background-color: #9b9b3f; color: white; font-family: Courier, monospace;">
+                    Bus Number: {{ bus_number }}
+                </div>
+                <div class="card-body">
+                    <img src="{{ url_for('static', filename=bus_number + '.png') }}" class="img-fluid" alt="QR Code">
+                </div>
+            </div>
+        </div>
+            
+        {% endfor %}
+    </ul>
+    <div class="footer">
+        <p>&copy; 2024 QR Based City Bus Route Recommendation System. All Rights Reserved.</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f3f5;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-item .nav-link {
+            color: white;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            background-image: url('E:/Python/qrbus/static/scan1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .login-box h1 {
+            text-align: center;
+        }
+        .footer {
+            background-color: #5e5e06;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg " style="padding: 20px; background-color: #5e5e06">
+        <a class="navbar-brand" href="#" style="font-family: Arial Black;; color:white;">QR Based City Bus Route Recommendation System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Arial Black;">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a  style="color: white;" class="nav-link" href="{{ url_for('home') }}">Home </a>
+                </li>
+  
+                
+               
+                
+                
+            </ul>
+        </div>
+    </nav>
+    
+<div class="login-container" style="background-image: url(/static/high-angle-adult-holding-smartphone.jpg); background-repeat: no-repeat; background-size: cover;">
+    <div class="login-box" style="background-color: #9b9b3f;">
+        <h1 style="font-family: Courier, monospace;">Admin Login</h1>
+        <form method="POST" action="/admin_login">
+            <div class="form-group">
+                <label for="bus_depo_name">Bus Depo Name:</label>
+                <input type="text" class="form-control" id="bus_depo_name" name="bus_depo_name" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <center>
+            <button type="submit" style="width: 30%;" class="btn btn-primary btn-block">Login</button></center>
+        </form>
+    </div>
+</div>
+<div class="footer">
+    <p>&copy; 2024 QR Based City Bus Route Recommendation System. All Rights Reserved.</p>
+</div>
+
+</body>
+</html>

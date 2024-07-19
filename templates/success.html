@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="jumbotron text-center bg-info py-3" style="background-size: cover; background-position: center;">
+            <h1 class="display-5 text-white">Bus Details Added Successfully</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Bus Information</h5>
+                    </div>
+                    <div class="card-body py-2">
+                        <p class="mb-1"><strong>Bus Number:</strong> {{ bus_number }}</p>
+                        <p class="mb-1"><strong>From Place:</strong> {{ from_place }}</p>
+                        <p class="mb-1"><strong>Destination:</strong> {{ destination }}</p>
+                        <p class="mb-1"><strong>Total Fare:</strong> {{ total_fare }}</p>
+                        
+                        <!-- Insert the Message here -->
+                        <p class="mb-0"><strong>Message:</strong> {{ message }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">QR Code</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="{{ url_for('static', filename=bus_number+'.png') }}" class="img-fluid" alt="QR Code">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display Dynamic Stops Section -->
+        <div class="mt-4">
+            <h5> Stoping Details:</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Stop Name</th>
+                        <th>Bus Fare</th>
+                        <th>Bus Timing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stop in stops %}
+                    <tr>
+                        <td>{{ stop[2] }}</td>
+                        <td>{{ stop[3] }}</td>
+                        <td>{{ stop[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

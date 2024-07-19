@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Bus Route Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+         .footer {
+            background-color: #5e5e06;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+   
+</head>
+<body style="background-image: url(/static/women-scanning-qr-code-restaurant.jpg); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+    <!-- Responsive Navbar -->
+    <nav class="navbar navbar-expand-lg " style="padding: 20px; background-color: #5e5e06">
+        <a class="navbar-brand" href="#" style="font-family: Arial Black;; color:white;">QR Based City Bus Route Recommendation System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Arial Black;">
+            <ul class="navbar-nav ml-auto">
+               
+                <li class="nav-item">
+                    <a style="color: white;" class="nav-link" href="{{ url_for('insert_qr_code') }}">Insert QR Code</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: white;" class="nav-link" href="{{ url_for('view_qr_codes') }}">View QR Codes</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: white;" class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="align-items: center; width: 50% ; background-color: #9b9b3f; border-radius: 10px;">
+        <div class="container2" style="margin: 20px; padding: 20px;">
+        <h1 class="mt-4" style="font-family: Courier, monospace;">Add Bus Route Details</h1><br>
+        <form method="POST">
+            <div class="form-group">
+                <label for="bus_number">Bus Number:</label>
+                <input type="text" class="form-control" name="bus_number" required>
+            </div>
+            <div class="form-group">
+                <label for="from_place">From Place:</label>
+                <input type="text" class="form-control" name="from_place" required>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" class="form-control" name="destination" required>
+            </div>
+            <div class="form-group">
+                <label for="total_fare">Total Fare:</label>
+                <input type="number" class="form-control" name="total_fare" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <input type="text" class="form-control" name="message" required>
+            </div>
+            <div class="form-group">
+                <label for="num_stops">Number of Stops:</label>
+                <input type="number" class="form-control" name="num_of_stops" id="num_stops" required>
+            </div><br>
+            <div id="dynamic_stops">
+                <!-- Stops will be added here dynamically by JavaScript -->
+            </div>
+
+            <center>
+                <!-- Button to add more stops dynamically --><button type="button" class="btn btn-primary" id="add_stop">Add Stop</button>
+            <button type="submit" class="btn btn-primary">Submit</button></center>
+        </form>
+    </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p>&copy; 2024 QR Based City Bus Route Recommendation System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JavaScript for dynamically adding stop input fields -->
+    <script>
+        // JavaScript code for dynamically adding stop input fields
+        $(document).ready(function() {
+            var numStops = 0;
+
+            // Function to add a new set of stop input fields
+            function addStopFields() {
+                numStops++;
+                var stopFields = `
+                <div class="form-group">
+                    <label for="stop_name_${numStops}">Stop Name ${numStops}:</label>
+                    <input type="text" class="form-control" name="stop_name[]" required>
+                </div>
+                <div class="form-group">
+                    <label for="stop_fare_${numStops}">Bus Fare ${numStops}:</label>
+                    <input type="number" class="form-control" name="stop_fare[]" required>
+                </div>
+                <div class="form-group">
+                    <label for="stop_timing_${numStops}">Bus Timing ${numStops}:</label>
+                    <input type="text" class="form-control" name="stop_timing[]" required>
+                </div>
+                `;
+                $("#dynamic_stops").append(stopFields);
+            }
+
+            // Add initial set of stop input fields
+            addStopFields();
+
+            // Handle click event to add more stop fields
+            $("#add_stop").click(function() {
+                addStopFields();
+            });
+        });
+    </script>
+
+</body>
+</html>

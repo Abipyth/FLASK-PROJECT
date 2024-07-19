@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Buses</title>
+</head>
+<body>
+    <h1>Available Buses to Destination: {{ destination }}</h1>
+    <form method="post">
+        <label for="destination">Select Destination:</label>
+        <select name="destination">
+            <option value="Destination1">Destination 1</option>
+            <option value="Destination2">Destination 2</option>
+            <!-- Add more options for your destinations -->
+        </select>
+        <input type="submit" value="Show Available Buses">
+    </form>
+    <ul>
+        {% for bus in available_buses %}
+            <li>
+                Bus Number: {{ bus.bus_number }}<br>
+                From Place: {{ bus.from_place }}<br>
+                Destination: {{ bus.destination }}<br>
+                <a href="{{ url_for('show_qr_code', bus_number=bus.bus_number) }}">Scan QR Code</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

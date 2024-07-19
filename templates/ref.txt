@@ -1,0 +1,206 @@
+home.html for ref
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Based City Bus Route Recommendation System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f3f5;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-item .nav-link {
+            color: white;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        h1 {
+            color: #343a40;
+        }
+        p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .jumbotron {
+            background-image: url('bus-image.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">QR Based City Bus Route Recommendation System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('admin_login') }}">Admin Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message[1] }}">{{ message[0] }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+
+<div class="jumbotron">
+    <h1>Welcome to QR Based City Bus Route Recommendation System</h1>
+    <p>This is a comprehensive system to manage bus route information.</p>
+</div>
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">About Us</h1>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <p class="lead">Welcome to the QR Based City Bus Route Recommendation System! Our goal is to provide a comprehensive solution for managing bus route information and facilitating easy access to bus details for passengers.</p>
+    
+            <p>Our system allows administrators to add bus route information, generate QR codes for each route, and provide passengers with a seamless way to access route details using their smartphones. With our user-friendly interface and modern technology, we aim to enhance the public transportation experience and make traveling by bus more convenient.</p>
+    
+            <p>Whether you're an administrator managing bus routes or a passenger looking for accurate and up-to-date bus information, our system is designed to meet your needs. We're dedicated to improving urban mobility and ensuring a smooth journey for everyone.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2023 QR Based City Bus Route Recommendation System. All Rights Reserved.</p>
+</div>
+
+</body>
+</html>
+
+
+
+
+home.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Based City Bus Route Recommendation System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f3f5;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-item .nav-link {
+            color: white;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        h1 {
+            color: #343a40;
+        }
+        p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .jumbotron {
+            background-image: url('bus-image.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">QR Based City Bus Route Recommendation System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('admin_login') }}">Admin Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('view_qr_codes') }}">View QR Codes</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message[1] }}">{{ message[0] }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+<div class="jumbotron">
+    <h1>Welcome to QR Based City Bus Route Recommendation System</h1>
+    <p>This is a comprehensive system to manage bus route information.</p>
+</div>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">About Us</h1>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <p class="lead">Welcome to the QR Based City Bus Route Recommendation System! Our goal is to provide a comprehensive solution for managing bus route information and facilitating easy access to bus details for passengers.</p>
+    
+            <p>Our system allows administrators to add bus route information, generate QR codes for each route, and provide passengers with a seamless way to access route details using their smartphones. With our user-friendly interface and modern technology, we aim to enhance the public transportation experience and make traveling by bus more convenient.</p>
+    
+            <p>Whether you're an administrator managing bus routes or a passenger looking for accurate and up-to-date bus information, our system is designed to meet your needs. We're dedicated to improving urban mobility and ensuring a smooth journey for everyone.</p>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>&copy; 2023 QR Based City Bus Route Recommendation System. All Rights Reserved.</p>
+</div>
+</body>
+</html>
