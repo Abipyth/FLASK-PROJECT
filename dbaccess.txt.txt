@@ -1,0 +1,9 @@
+pip install qrcode
+
+GRANT ALL PRIVILEGES ON qr_code.* TO 'root'@'hpcs-002' IDENTIFIED BY '';
+
+'LAPTOP-PMQ61R2C'
+
+GRANT ALL PRIVILEGES ON qr_code.* TO 'root'@'laptop-pmq61r2c' IDENTIFIED BY '';
+
+'root'@'laptop-pmq61r2c'
