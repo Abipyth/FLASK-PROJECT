@@ -13,12 +13,14 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 # Define the allowed file extensions
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
-# Database connection setup
+# Parse ClearDB connection details from the environment variable
+db_url = urlparse(os.environ.get('CLEARDB_DATABASE_URL'))
+
 db_connection = mysql.connector.connect(
-    host="",
-    user="root",
-    password="",
-    database="qr_code"
+    host=db_url.hostname,
+    user=db_url.username,
+    password=db_url.password,
+    database=db_url.path[1:]  # The path will have a leading '/', so we remove it with [1:]
 )
 
 @app.route("/")
